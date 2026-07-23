@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible problem without exposing private data.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post credentials, cookies, private messages, handles, conversation URLs, local paths, or unredacted task reports.
+  - type: input
+    id: version
+    attributes:
+      label: QQK skill version
+      placeholder: "8"
+    validations:
+      required: true
+  - type: dropdown
+    id: rehearsal
+    attributes:
+      label: Safety Rehearsal
+      options:
+        - "On"
+        - "Off with explicit approval"
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: Describe visible UI state using synthetic or redacted values.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Stable error code
+      description: Paste only the redacted error code and message.
