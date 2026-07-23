@@ -4,6 +4,138 @@
   "artifacts": {
     "modulePath": "modules/send-dm-outreach.mjs",
     "modulePaths": [
+      "modules/send-dm-outreach.mjs"
+    ],
+    "configurationPath": "config.json",
+    "documentPath": "../README.md"
+  },
+  "skill": {
+    "name": "x_web_send_dm_outreach",
+    "title": "X Web Send DM Outreach / X网页私信触达",
+    "description": "Open X Chat, search one exact user in the visible New message interface, and send one human-typed direct message without constructing a conversation URL.",
+    "platform": "x_web",
+    "category": "messaging",
+    "workflowName": "x_web_send_dm_outreach",
+    "version": 10,
+    "status": "published-source",
+    "targetRuntime": "browser",
+    "invocationTemplatesFrom": "config.json",
+    "inputSchema": {
+      "type": "object",
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "profileId"
+              ]
+            },
+            {
+              "required": [
+                "profileName"
+              ]
+            }
+          ]
+        }
+      ],
+      "required": [
+        "recipientHandle",
+        "message"
+      ],
+      "x-qqk-realRunWhenDryRunFalse": true,
+      "additionalProperties": false,
+      "properties": {
+        "profileId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profileName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipientHandle": {
+          "type": "string",
+          "description": "Exact X handle without @.",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "message": {
+          "type": "string",
+          "description": "Direct-message text typed with keyboard events.",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "dryRun": {
+          "type": "boolean",
+          "description": "Controlled by the QQK Safety Rehearsal switch.",
+          "default": true
+        },
+        "closeProfile": {
+          "type": "boolean",
+          "default": false
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 10000,
+          "maximum": 120000,
+          "default": 60000
+        }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "businessStatus",
+        "recipientHandle",
+        "sent",
+        "recipientsProcessed",
+        "messagesAttempted",
+        "messagesSucceeded"
+      ],
+      "properties": {
+        "businessStatus": {
+          "type": "string"
+        },
+        "recipientHandle": {
+          "type": "string"
+        },
+        "sent": {
+          "type": "boolean"
+        },
+        "alreadySent": {
+          "type": "boolean"
+        },
+        "conversationUrl": {
+          "type": "string"
+        },
+        "recipientsProcessed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "messagesAttempted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "messagesSucceeded": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "installation": {
+    "supportedMode": "qqk_catalog_sync",
+    "directJsonImportSupported": false,
+    "notes": "QQK Local Admin supplies the reviewed runtime and shared dependencies through catalog sync."
+  }
+}
+{
+  "schemaVersion": 1,
+  "repositoryPackageVersion": "1.0.0",
+  "artifacts": {
+    "modulePath": "modules/send-dm-outreach.mjs",
+    "modulePaths": [
       "modules/send-dm-outreach.mjs",
       "modules/x-web-skill-runtime.mjs",
       "modules/send-direct-message.mjs",
