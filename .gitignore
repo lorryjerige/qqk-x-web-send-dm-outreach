@@ -1,9 +1,0 @@
-node_modules/
-.DS_Store
-Thumbs.db
-*.log
-.env
-.env.*
-screenshots/
-task-reports/
-local-data/
