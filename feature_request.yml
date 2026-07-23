@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest a focused improvement to this skill.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user-visible problem should this skill solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the visible and verifiable browser behavior.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: The proposal preserves explicit approval before sending.
+          required: true
+        - label: The proposal does not require private conversation URL construction.
+          required: true

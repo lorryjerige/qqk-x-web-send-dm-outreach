@@ -1,0 +1,25 @@
+{
+  "name": "qqk-x-web-send-dm-outreach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open-source QQK browser skill for sending one verified X direct message through the visible X Chat UI without the X API.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "qqk",
+    "ai-agent",
+    "browser-automation",
+    "x-com",
+    "twitter-automation",
+    "direct-message",
+    "outreach",
+    "no-api",
+    "bitbrowser"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node tools/validate-repository.mjs"
+  }
+}
